@@ -1,0 +1,32 @@
+{
+  "baseUrl": "https://api.callcap.com",
+  "auth": {
+    "header": "Authorization",
+    "value": "Bearer ${CALLCAP_API_KEY}"
+  },
+  "headers": {
+    "Accept": "application/json"
+  },
+  "list": {
+    "endpoint": "/v1/calls",
+    "itemsPath": "data.calls",
+    "query": {
+      "from": "{from}",
+      "to": "{to}",
+      "page": "{page}"
+    },
+    "pagination": {
+      "type": "page",
+      "start": 1,
+      "nextPath": "data.nextPage"
+    }
+  },
+  "recording": {
+    "idField": "id",
+    "endpointTemplate": "/v1/calls/{id}/recording",
+    "filenameTemplate": "{id}.mp3"
+  },
+  "output": {
+    "metadataFile": "calls.jsonl"
+  }
+}
